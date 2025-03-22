@@ -29,6 +29,43 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
     alert(`Thank you for subscribing with ${email}!`);
 });
 
-// Example of adding items to cart
-addToCart('Men\'s Trendy T-Shirt', 29.99);
-addToCart('Women\'s Elegant Dress', 59.99);
+document.getElementById('review-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('reviewer-name').value;
+    const review = document.getElementById('review-text').value;
+
+    const reviewList = document.getElementById('review-list');
+    const reviewItem = document.createElement('div');
+    reviewItem.classList.add('review');
+    reviewItem.innerHTML = `<strong>${name}</strong><p>${review}</p>`;
+
+    reviewList.appendChild(reviewItem);
+
+    document.getElementById('reviewer-name').value = '';
+    document.getElementById('review-text').value = '';
+});
+
+// Carousel functionality
+let currentImage = 0;
+const images = [
+    'men-product1.jpg', 'men-product2.jpg', 'men-product3.jpg'
+];
+
+function updateCarousel() {
+    document.getElementById('carousel-img').src = images[currentImage];
+}
+
+function nextImage() {
+    currentImage = (currentImage + 1) % images.length;
+    updateCarousel();
+}
+
+function prevImage() {
+    currentImage = (currentImage - 1 + images.length) % images.length;
+    updateCarousel();
+}
+
+// Hide loading spinner after page load
+window.onload = function() {
+    document.getElementById('loading-spinner').style.display = 'none';
+};
