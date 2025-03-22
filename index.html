@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virell Clothing</title>
+    <meta name="description" content="Virell Clothing offers trendy and stylish clothing for men and women. Shop now for the latest fashion collections.">
+    <meta name="keywords" content="clothing, fashion, men's clothing, women's clothing, accessories, streetwear">
+    <meta name="author" content="Virell Clothing">
     <link rel="stylesheet" href="style.css">
     <!-- GSAP Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
@@ -20,6 +23,7 @@
                 <li><a href="#men">Men</a></li>
                 <li><a href="#women">Women</a></li>
                 <li><a href="#accessories">Accessories</a></li>
+                <li><a href="#cart">Cart</a></li>
             </ul>
         </nav>
     </header>
@@ -31,6 +35,25 @@
             <p class="hero-desc">Trendy. Stylish. Unique.</p>
             <button class="hero-btn"><a href="#shop">Shop Now</a></button>
         </div>
+    </section>
+
+    <!-- Product Filter Section -->
+    <section id="filter">
+        <h2>Filter Products</h2>
+        <label for="category">Category:</label>
+        <select id="category">
+            <option value="all">All</option>
+            <option value="men">Men's Clothing</option>
+            <option value="women">Women's Clothing</option>
+            <option value="accessories">Accessories</option>
+        </select>
+
+        <label for="sort">Sort by:</label>
+        <select id="sort">
+            <option value="default">Default</option>
+            <option value="price-asc">Price (Low to High)</option>
+            <option value="price-desc">Price (High to Low)</option>
+        </select>
     </section>
 
     <!-- Men's Section -->
@@ -100,6 +123,24 @@
                 <!-- Add more women's accessories here -->
             </div>
         </div>
+    </section>
+
+    <!-- Shopping Cart Section -->
+    <section id="cart">
+        <h2>Your Cart</h2>
+        <div id="cart-items">
+            <p>No items in your cart.</p> <!-- This will dynamically change later with JS -->
+        </div>
+        <button id="checkout-btn">Proceed to Checkout</button>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter">
+        <h2>Subscribe to Our Newsletter</h2>
+        <form id="newsletter-form">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
     </section>
 
     <!-- Footer Section -->
