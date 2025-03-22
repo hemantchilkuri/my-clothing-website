@@ -13,6 +13,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
 </head>
 <body>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+
     <header>
         <div class="logo">
             <h1>Virell Clothing</h1>
@@ -61,15 +66,33 @@
         <h2>Men's Collection</h2>
         <div class="product-gallery">
             <div class="product-item">
-                <img src="men-product1.jpg" alt="Men's Product 1">
-                <p>Men's Trendy T-Shirt</p>
+                <a href="#product1" class="product-link">
+                    <img src="men-product1.jpg" alt="Men's Product 1">
+                    <p>Men's Trendy T-Shirt</p>
+                </a>
             </div>
             <div class="product-item">
-                <img src="men-product2.jpg" alt="Men's Product 2">
-                <p>Men's Stylish Jeans</p>
+                <a href="#product2" class="product-link">
+                    <img src="men-product2.jpg" alt="Men's Product 2">
+                    <p>Men's Stylish Jeans</p>
+                </a>
             </div>
-            <!-- Add more men's products here -->
         </div>
+    </section>
+
+    <!-- Product Detail (for demo) -->
+    <section id="product1" class="product-detail">
+        <h2>Men's Trendy T-Shirt</h2>
+        <div class="carousel">
+            <img id="carousel-img" src="men-product1.jpg" alt="Product Image">
+            <div class="carousel-buttons">
+                <button class="carousel-prev" onclick="prevImage()">❮</button>
+                <button class="carousel-next" onclick="nextImage()">❯</button>
+            </div>
+        </div>
+        <p>High-quality cotton, available in various sizes. Perfect for casual outings.</p>
+        <p><strong>Price:</strong> $29.99</p>
+        <button>Add to Cart</button>
     </section>
 
     <!-- Women's Section -->
@@ -84,15 +107,12 @@
                 <img src="women-product2.jpg" alt="Women's Product 2">
                 <p>Women's Casual Blouse</p>
             </div>
-            <!-- Add more women's products here -->
         </div>
     </section>
 
     <!-- Accessories Section -->
     <section id="accessories">
         <h2>Accessories</h2>
-
-        <!-- Men’s Accessories -->
         <div class="accessories-section">
             <h3>Men's Accessories</h3>
             <div class="product-gallery">
@@ -104,11 +124,9 @@
                     <img src="mens-accessory2.jpg" alt="Men's Accessory 2">
                     <p>Men's Sunglasses</p>
                 </div>
-                <!-- Add more men's accessories here -->
             </div>
         </div>
 
-        <!-- Women's Accessories -->
         <div class="accessories-section">
             <h3>Women's Accessories</h3>
             <div class="product-gallery">
@@ -120,7 +138,6 @@
                     <img src="womens-accessory2.jpg" alt="Women's Accessory 2">
                     <p>Women's Handbag</p>
                 </div>
-                <!-- Add more women's accessories here -->
             </div>
         </div>
     </section>
@@ -140,6 +157,19 @@
         <form id="newsletter-form">
             <input type="email" id="email" placeholder="Enter your email" required>
             <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section id="reviews">
+        <h2>Customer Reviews</h2>
+        <div id="review-list">
+            <!-- Reviews will appear here -->
+        </div>
+        <form id="review-form">
+            <input type="text" id="reviewer-name" placeholder="Your name" required>
+            <textarea id="review-text" placeholder="Write your review" required></textarea>
+            <button type="submit">Submit Review</button>
         </form>
     </section>
 
