@@ -11,6 +11,9 @@ header {
     color: white;
     text-align: center;
     padding: 15px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
@@ -74,29 +77,35 @@ nav ul li a {
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Product Filter Section */
-#filter {
-    padding: 40px 20px;
-    background-color: #fff;
-    text-align: center;
+/* Loading Spinner */
+.loading-spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
-#category, #sort {
-    padding: 10px;
-    font-size: 1.2em;
+.spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
 }
 
-/* Men's, Women's, and Accessories Sections */
-section {
-    padding: 50px 20px;
-    text-align: center;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-h2, h3 {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
-
+/* Product Gallery */
 .product-gallery {
     display: flex;
     justify-content: center;
@@ -121,7 +130,36 @@ h2, h3 {
     margin-top: 10px;
 }
 
-/* Shopping Cart Section */
+/* Carousel */
+.carousel {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.carousel-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.carousel-prev, .carousel-next {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Cart Section */
 #cart {
     background-color: #fff;
     padding: 50px 20px;
@@ -174,18 +212,52 @@ h2, h3 {
     background-color: #d35400;
 }
 
-/* Footer */
-footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 50px;
+/* Reviews Section */
+#reviews {
+    padding: 40px 20px;
+    background-color: #fff;
 }
 
-footer p {
-    margin: 0;
-    font-size: 16px;
+#reviews h2 {
+    text-align: center;
+}
+
+#review-list {
+    margin-top: 20px;
+}
+
+.review {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+#review-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#review-form input, #review-form textarea {
+    padding: 10px;
+    font-size: 1em;
+    margin: 5px 0;
+    width: 80%;
+}
+
+#review-form button {
+    background-color: #f39c12;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+#review-form button:hover {
+    background-color: #d35400;
 }
 
 /* Mobile-first Design */
