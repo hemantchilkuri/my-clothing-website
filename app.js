@@ -1,50 +1,34 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Animations for Hero Section (Already Added)
-    gsap.from(".hero-text", { 
-        duration: 1.5, 
-        y: -100, 
-        opacity: 0, 
-        ease: "power3.out" 
-    });
+let cart = [];
 
-    gsap.from(".hero-desc", { 
-        duration: 2, 
-        x: -100, 
-        opacity: 0, 
-        delay: 0.5, 
-        ease: "power3.out" 
-    });
+function addToCart(productName, price) {
+    cart.push({ productName, price });
+    updateCart();
+}
 
-    gsap.from(".hero-btn", { 
-        duration: 2, 
-        scale: 0.5, 
-        opacity: 0, 
-        delay: 1, 
-        ease: "elastic.out(1, 0.5)" 
-    });
+function updateCart() {
+    const cartItemsDiv = document.getElementById('cart-items');
+    if (cart.length === 0) {
+        cartItemsDiv.innerHTML = "<p>No items in your cart.</p>";
+    } else {
+        let cartContent = "<ul>";
+        cart.forEach(item => {
+            cartContent += `<li>${item.productName} - $${item.price}</li>`;
+        });
+        cartContent += "</ul>";
+        cartItemsDiv.innerHTML = cartContent;
+    }
+}
 
-    // Animations for Men’s, Women’s, and Accessories Sections
-    gsap.from("#men", { 
-        duration: 2, 
-        opacity: 0, 
-        y: 50, 
-        ease: "power3.out",
-        delay: 1
-    });
-
-    gsap.from("#women", { 
-        duration: 2, 
-        opacity: 0, 
-        y: 50, 
-        ease: "power3.out",
-        delay: 1.5
-    });
-
-    gsap.from("#accessories", { 
-        duration: 2, 
-        opacity: 0, 
-        y: 50, 
-        ease: "power3.out",
-        delay: 2
-    });
+document.getElementById('checkout-btn').addEventListener('click', () => {
+    alert('Redirecting to checkout...');
 });
+
+document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    alert(`Thank you for subscribing with ${email}!`);
+});
+
+// Example of adding items to cart
+addToCart('Men\'s Trendy T-Shirt', 29.99);
+addToCart('Women\'s Elegant Dress', 59.99);
