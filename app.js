@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Hero Section Text Animation
+    // Animations for Hero Section (Already Added)
     gsap.from(".hero-text", { 
         duration: 1.5, 
         y: -100, 
@@ -23,16 +23,28 @@ document.addEventListener('DOMContentLoaded', () => {
         ease: "elastic.out(1, 0.5)" 
     });
 
-    // Parallax Scrolling Effect for Hero Section
-    gsap.to(".hero", {
-        scrollTrigger: {
-            trigger: ".hero",
-            start: "top top",
-            end: "bottom top",
-            scrub: true
-        },
-        y: 200,
-        ease: "none"
+    // Animations for Men’s, Women’s, and Accessories Sections
+    gsap.from("#men", { 
+        duration: 2, 
+        opacity: 0, 
+        y: 50, 
+        ease: "power3.out",
+        delay: 1
+    });
+
+    gsap.from("#women", { 
+        duration: 2, 
+        opacity: 0, 
+        y: 50, 
+        ease: "power3.out",
+        delay: 1.5
+    });
+
+    gsap.from("#accessories", { 
+        duration: 2, 
+        opacity: 0, 
+        y: 50, 
+        ease: "power3.out",
+        delay: 2
     });
 });
-
