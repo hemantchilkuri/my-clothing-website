@@ -69,3 +69,75 @@ function prevImage() {
 window.onload = function() {
     document.getElementById('loading-spinner').style.display = 'none';
 };
+// Parallax Scroll Effect
+gsap.to('.hero', {
+    scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+    },
+    y: 200,
+    ease: 'none'
+});
+
+// Reveal Sections as They Come into View (Scroll Animations)
+const sections = document.querySelectorAll('.section');
+sections.forEach((section) => {
+    gsap.fromTo(section, {
+        opacity: 0,
+        y: 100
+    }, {
+        opacity: 1,
+        y: 0,
+        scrollTrigger: {
+            trigger: section,
+            start: 'top bottom',
+            end: 'bottom top',
+            toggleActions: 'play none none none'
+        }
+    });
+});
+
+// Parallax Effect for Background
+gsap.to(".parallax-section", {
+    scrollTrigger: {
+        trigger: ".parallax-section",
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+    },
+    y: -150,
+    ease: "none"
+});
+
+// Smooth Scroll Effect
+gsap.utils.toArray("a").forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+        e.preventDefault();
+        gsap.to(window, {duration: 1, scrollTo: this.getAttribute("href")});
+    });
+});
+
+// Hide the loading spinner after page load
+window.onload = function() {
+    document.getElementById('loading-spinner').style.display = 'none';
+};
+
+// Carousel functionality for product images
+let currentImage = 0;
+const images = ['men-product1.jpg', 'men-product2.jpg', 'men-product3.jpg'];
+
+function updateCarousel() {
+    document.getElementById('carousel-img').src = images[currentImage];
+}
+
+function nextImage() {
+    currentImage = (currentImage + 1) % images.length;
+    updateCarousel();
+}
+
+function prevImage() {
+    currentImage = (currentImage - 1 + images.length) % images.length;
+    updateCarousel();
+}
